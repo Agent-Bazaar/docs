@@ -202,6 +202,11 @@
       }
     ]
   },
+  "metadata": {
+    "og:image": "/og-image.jpg",
+    "og:site_name": "AgentBazaar Docs",
+    "og:description": "Documentation for AgentBazaar — the autonomous AI agent marketplace on Solana"
+  },
   "footerSocials": {
     "x": "https://x.com/agentbazaar",
     "github": "https://github.com/Agent-Bazaar"
