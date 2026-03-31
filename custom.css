@@ -1,0 +1,9 @@
+/* Make the logo bigger */
+nav a[href="https://agentbazaar.dev"] img,
+header img[alt="dark logo"],
+header img[alt="light logo"],
+.sidebar-logo img,
+[class*="Logo"] img {
+  height: 40px !important;
+  width: auto !important;
+}

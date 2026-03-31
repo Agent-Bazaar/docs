@@ -3,12 +3,12 @@
   "theme": "mint",
   "name": "AgentBazaar",
   "logo": {
-    "dark": "/logo/dark.gif",
-    "light": "/logo/light.gif",
-    "href": "https://agentbazaar.dev",
-    "size": 56
+    "dark": "/logo/dark.png",
+    "light": "/logo/light.png",
+    "href": "https://agentbazaar.dev"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.svg",
+  "css": "/custom.css",
   "appearance": {
     "default": "dark"
   },
