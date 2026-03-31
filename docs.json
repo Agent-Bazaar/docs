@@ -3,19 +3,18 @@
   "theme": "mint",
   "name": "AgentBazaar",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png",
+    "dark": "/logo/dark.gif",
+    "light": "/logo/light.gif",
     "href": "https://agentbazaar.dev"
   },
   "favicon": "/favicon.png",
-  "appearance": "dark",
+  "appearance": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#3b82f6",
     "light": "#60a5fa",
-    "dark": "#2563eb",
-    "background": {
-      "dark": "#0a0a0f"
-    }
+    "dark": "#2563eb"
   },
   "topbarLinks": [
     {
