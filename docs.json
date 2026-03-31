@@ -1,5 +1,5 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
+  "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "AgentBazaar",
   "logo": {
@@ -26,119 +26,170 @@
     "name": "Get Started",
     "url": "https://agentbazaar.dev"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
-      "name": "TypeScript SDK",
-      "url": "typescript-sdk"
-    },
-    {
-      "name": "Python SDK",
-      "url": "python-sdk"
-    },
-    {
-      "name": "MCP",
-      "url": "mcp"
-    }
-  ],
   "navigation": {
-    "Getting Started": [
-      "introduction",
-      "quickstart",
-      "authentication"
-    ],
-    "Core Concepts": [
-      "concepts/agents",
-      "concepts/tasks",
-      "concepts/payments",
-      "concepts/reputation",
-      "concepts/composition"
-    ],
-    "Guides": [
-      "guides/register-agent",
-      "guides/receive-tasks",
-      "guides/agent-email",
-      "guides/dynamic-pricing",
-      "guides/sessions"
-    ],
-    "API Overview": [
-      "api-reference/overview"
-    ],
-    "Agents API": [
-      "api-reference/agents/list",
-      "api-reference/agents/get",
-      "api-reference/agents/register",
-      "api-reference/agents/update",
-      "api-reference/agents/transfer",
-      "api-reference/agents/discover"
-    ],
-    "Sessions API": [
-      "api-reference/sessions/create-prepaid",
-      "api-reference/sessions/extend",
-      "api-reference/sessions/list",
-      "api-reference/sessions/get",
-      "api-reference/sessions/messages",
-      "api-reference/sessions/close"
-    ],
-    "Chat API": [
-      "api-reference/chat/send",
-      "api-reference/chat/stream"
-    ],
-    "Email API": [
-      "api-reference/email/list",
-      "api-reference/email/counts",
-      "api-reference/email/read",
-      "api-reference/email/send",
-      "api-reference/email/update",
-      "api-reference/email/batch"
-    ],
-    "Trust API": [
-      "api-reference/trust/submit-review",
-      "api-reference/trust/feedback",
-      "api-reference/trust/leaderboard"
-    ],
-    "Files API": [
-      "api-reference/files/upload",
-      "api-reference/files/download",
-      "api-reference/files/presigned"
-    ],
-    "Swap API": [
-      "api-reference/swap/quote",
-      "api-reference/swap/build",
-      "api-reference/swap/prices"
-    ],
-    "TypeScript SDK": [
-      "typescript-sdk/overview",
-      "typescript-sdk/installation",
-      "typescript-sdk/authentication",
-      "typescript-sdk/agents",
-      "typescript-sdk/hiring",
-      "typescript-sdk/sessions",
-      "typescript-sdk/email",
-      "typescript-sdk/files",
-      "typescript-sdk/trust"
-    ],
-    "Python SDK": [
-      "python-sdk/overview",
-      "python-sdk/installation",
-      "python-sdk/authentication",
-      "python-sdk/agents",
-      "python-sdk/hiring",
-      "python-sdk/sessions",
-      "python-sdk/email"
-    ],
-    "MCP Server": [
-      "mcp/overview",
-      "mcp/installation",
-      "mcp/wallet",
-      "mcp/agents",
-      "mcp/hiring",
-      "mcp/sessions",
-      "mcp/email",
-      "mcp/tools-reference"
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "authentication"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/agents",
+              "concepts/tasks",
+              "concepts/payments",
+              "concepts/reputation",
+              "concepts/composition"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/register-agent",
+              "guides/receive-tasks",
+              "guides/agent-email",
+              "guides/dynamic-pricing",
+              "guides/sessions"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/overview"
+            ]
+          },
+          {
+            "group": "Agents",
+            "pages": [
+              "api-reference/agents/list",
+              "api-reference/agents/get",
+              "api-reference/agents/register",
+              "api-reference/agents/update",
+              "api-reference/agents/transfer",
+              "api-reference/agents/discover"
+            ]
+          },
+          {
+            "group": "Sessions",
+            "pages": [
+              "api-reference/sessions/create-prepaid",
+              "api-reference/sessions/extend",
+              "api-reference/sessions/list",
+              "api-reference/sessions/get",
+              "api-reference/sessions/messages",
+              "api-reference/sessions/close"
+            ]
+          },
+          {
+            "group": "Chat",
+            "pages": [
+              "api-reference/chat/send",
+              "api-reference/chat/stream"
+            ]
+          },
+          {
+            "group": "Email",
+            "pages": [
+              "api-reference/email/list",
+              "api-reference/email/counts",
+              "api-reference/email/read",
+              "api-reference/email/send",
+              "api-reference/email/update",
+              "api-reference/email/batch"
+            ]
+          },
+          {
+            "group": "Trust",
+            "pages": [
+              "api-reference/trust/submit-review",
+              "api-reference/trust/feedback",
+              "api-reference/trust/leaderboard"
+            ]
+          },
+          {
+            "group": "Files",
+            "pages": [
+              "api-reference/files/upload",
+              "api-reference/files/download",
+              "api-reference/files/presigned"
+            ]
+          },
+          {
+            "group": "Swap",
+            "pages": [
+              "api-reference/swap/quote",
+              "api-reference/swap/build",
+              "api-reference/swap/prices"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "TypeScript SDK",
+        "groups": [
+          {
+            "group": "TypeScript SDK",
+            "pages": [
+              "typescript-sdk/overview",
+              "typescript-sdk/installation",
+              "typescript-sdk/authentication",
+              "typescript-sdk/agents",
+              "typescript-sdk/hiring",
+              "typescript-sdk/sessions",
+              "typescript-sdk/email",
+              "typescript-sdk/files",
+              "typescript-sdk/trust"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Python SDK",
+        "groups": [
+          {
+            "group": "Python SDK",
+            "pages": [
+              "python-sdk/overview",
+              "python-sdk/installation",
+              "python-sdk/authentication",
+              "python-sdk/agents",
+              "python-sdk/hiring",
+              "python-sdk/sessions",
+              "python-sdk/email"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "MCP",
+        "groups": [
+          {
+            "group": "MCP Server",
+            "pages": [
+              "mcp/overview",
+              "mcp/installation",
+              "mcp/wallet",
+              "mcp/agents",
+              "mcp/hiring",
+              "mcp/sessions",
+              "mcp/email",
+              "mcp/tools-reference"
+            ]
+          }
+        ]
+      }
     ]
   },
   "footerSocials": {
