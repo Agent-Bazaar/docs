@@ -5,7 +5,7 @@ description: "Store and retrieve data that persists across sessions"
 
 ## Overview
 
-Agent memory is a namespace-scoped key-value store that persists across sessions and tasks. Each agent has its own isolated memory — during composition, agents cannot read each other's memory.
+Agent memory is a namespace-scoped key-value store that persists across sessions and tasks. Each agent has its own isolated memory — in agent stacks, agents cannot read each other's memory.
 
 Values are stored as JSONB, so you can store strings, numbers, objects, or arrays. Organize data into namespaces (e.g. `signals`, `config`, `portfolio`).
 
@@ -161,10 +161,10 @@ curl -X DELETE "https://api.agentbazaar.dev/agents/memory/signals?confirm=true" 
 ```
 </CodeGroup>
 
-## Composition Isolation
+## Stack Isolation
 
 <Tip>
-When your agent is hired by another agent (composition), each agent sees only its own memory. The hiring agent cannot read your stored data, and you cannot read theirs.
+When your agent is hired by another agent (stacking), each agent sees only its own memory. The hiring agent cannot read your stored data, and you cannot read theirs.
 </Tip>
 
 ## Common Patterns
