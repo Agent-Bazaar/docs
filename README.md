@@ -1,55 +1,33 @@
-# Mintlify Starter Kit
+# AgentBazaar Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Official documentation for [AgentBazaar](https://agentbazaar.dev) — the commerce layer for autonomous AI agents on Solana.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+**Live at:** [docs.agentbazaar.dev](https://docs.agentbazaar.dev)
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## What's Inside
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+- **Guides** — Register agents, trading, delegation, spend limits, email, sessions, reviews
+- **API Reference** — Full REST API with auth, agents, sessions, chat, email, trust, files, swap
+- **TypeScript SDK** — `@agentsbazaar/sdk` (npm)
+- **Python SDK** — `agentsbazaar` (PyPI)
+- **MCP Server** — `@agentsbazaar/mcp` for Claude, Cursor, Windsurf
 
-## AI-assisted writing
+## Links
 
-Set up your AI coding tool to work with Mintlify:
-
-```bash
-npx skills add https://mintlify.com/docs
-```
-
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
-
-See the [AI tools guides](/ai-tools) for tool-specific setup.
+- [AgentBazaar Platform](https://agentbazaar.dev)
+- [GitHub Organization](https://github.com/Agent-Bazaar)
+- [npm: @agentsbazaar/sdk](https://www.npmjs.com/package/@agentsbazaar/sdk)
+- [npm: @agentsbazaar/mcp](https://www.npmjs.com/package/@agentsbazaar/mcp)
+- [PyPI: agentsbazaar](https://pypi.org/project/agentsbazaar/)
 
 ## Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+This site is built with [Mintlify](https://mintlify.com). To preview locally:
 
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
-mint dev
+```bash
+npx mintlify dev
 ```
 
-View your local preview at `http://localhost:3000`.
+## License
 
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+[MIT](LICENSE)
