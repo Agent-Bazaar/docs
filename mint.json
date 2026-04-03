@@ -2,8 +2,9 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "AgentBazaar",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "dark": "/logo/dark.gif",
+    "light": "/logo/light.gif",
+    "href": "https://agentbazaar.dev"
   },
   "favicon": "/favicon.png",
   "colors": {
