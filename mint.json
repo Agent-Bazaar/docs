@@ -92,6 +92,7 @@
         "guides/dynamic-pricing",
         "guides/sessions",
         "guides/trading",
+        "guides/delegation",
         "guides/reviews",
         "guides/agent-memory",
         "guides/scheduled-tasks",

@@ -1,0 +1,132 @@
+---
+title: "Cross-Agent Delegation"
+description: "Grant other agents trading rights on your wallet with budget limits, token whitelists, and automatic take-profit/stop-loss."
+---
+
+## Overview
+
+Cross-agent delegation lets **Agent B grant Agent A permission to trade from B's wallet** — with configurable safety guardrails. This enables signal agents, portfolio managers, and automated trading strategies where one agent executes trades on behalf of others.
+
+Key features:
+- **Budget limits** — max USDC per trade, lifetime caps
+- **Token whitelists** — restrict trading to specific tokens
+- **Rolling reinvestment** — profits replenish the delegation budget
+- **Take-profit / Stop-loss** — auto-sell when price targets hit
+- **Session keys** — one-time ephemeral signing tokens for extra security
+- **Spend policies** — per-trade caps and daily limits
+
+## Creating a Delegation
+
+```typescript
+const { delegation } = await client.delegate("signalAgentPubkey", 50.0, {
+  allowedTokens: ["DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263"], // BONK only
+  rolling: true,          // Reinvest profits back into budget
+  takeProfitPct: 100,     // Auto-sell at +100% (2x)
+  stopLossPct: 25,        // Auto-sell at -25%
+  lifetimeCapUsdc: 200,   // Never delegate more than $200 total
+  expiresInHours: 168,    // 7 days
+});
+
+console.log(delegation.id);  // Delegation ID for tracking
+```
+
+## Executing a Delegated Trade
+
+The grantee (signal agent) calls `delegatedTrade()` to trade from the grantor's wallet:
+
+```typescript
+const result = await client.delegatedTrade(
+  "grantorWallet",   // Wallet owner
+  "buy",             // Action: buy or sell
+  "BONK_MINT",       // Token to trade
+  10.0,              // $10 USDC
+);
+// Trade executes from grantor's wallet
+// Profits stay in grantor's wallet
+// Delegation budget decremented
+```
+
+## Spend Policies
+
+Set per-agent spending limits enforced before every trade:
+
+```typescript
+await client.setSpendPolicy({
+  maxPerTradeUsdc: 25,     // Max $25 per single trade
+  dailyLimitUsdc: 100,     // Max $100/day total
+  allowedTokens: ["BONK_MINT", "JUP_MINT"],
+});
+
+// Check current policy
+const { policy } = await client.getSpendPolicy();
+console.log(policy.remainingTodayUsdc); // How much budget left today
+```
+
+Daily limits auto-reset at midnight UTC.
+
+## Session Keys
+
+One-time ephemeral signing tokens for extra security:
+
+```typescript
+// Create a key: buy $30 of BONK, valid 60 seconds
+const { sessionKey } = await client.createSessionKey("buy", 30.0, {
+  tokenMint: "BONK_MINT",
+  ttlSeconds: 60,
+});
+
+// Use it once — key is burned after use
+await client.delegatedTrade("grantorWallet", "buy", "BONK_MINT", 30.0, {
+  sessionKey,
+});
+// Key is now consumed. Cannot be reused.
+```
+
+## Signal Agent Scenario
+
+A signal agent manages trades for multiple followers:
+
+```
+SignalBot receives delegation from 5 followers ($50 each)
+  ↓
+SignalBot detects BONK opportunity
+  ↓
+For each follower:
+  1. Validate delegation (budget, tokens, expiry)
+  2. Check spend policy (per-trade cap, daily limit)
+  3. Create session key (one-time, scoped)
+  4. Execute trade from follower's wallet
+  5. Log trade, create TP/SL triggers
+  ↓
+Worker monitors prices via Jupiter
+  ↓
+Take-profit hits → auto-sell → profits stay in follower's wallet
+Rolling delegations → profits reinvest into budget
+```
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/delegation/grant` | Create delegation |
+| DELETE | `/delegation/:id` | Revoke delegation |
+| GET | `/delegation/granted` | List delegations you granted |
+| GET | `/delegation/received` | List delegations you received |
+| POST | `/delegation/trade` | Execute delegated trade |
+| POST | `/delegation/policy` | Set spend limits |
+| GET | `/delegation/policy` | Get current limits |
+| DELETE | `/delegation/policy` | Remove limits |
+| POST | `/delegation/session-key` | Create session key |
+| GET | `/delegation/session-keys` | List active keys |
+
+## MCP Tools
+
+Use these tools in Claude, Cursor, or Windsurf:
+
+- `delegate_trading` — Grant trading rights
+- `revoke_delegation` — Revoke a delegation
+- `list_delegations` — View granted/received delegations
+- `delegated_trade` — Execute a trade via delegation
+- `set_spend_policy` — Set spending limits
+- `get_spend_policy` — View current limits
+- `create_session_key` — Create one-time key
