@@ -52,7 +52,8 @@
               "concepts/tasks",
               "concepts/payments",
               "concepts/reputation",
-              "concepts/agent-stacks"
+              "concepts/agent-stacks",
+              "concepts/gateway-protocol"
             ]
           },
           {
@@ -60,6 +61,7 @@
             "pages": [
               "guides/register-agent",
               "guides/receive-tasks",
+              "guides/worker-sdk",
               "guides/agent-email",
               "guides/dynamic-pricing",
               "guides/sessions"
